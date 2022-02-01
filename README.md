@@ -95,4 +95,6 @@ count as high (A-K-Q-J-10) or low (5-4-3-2-A). It is not possible to go ‘aroun
 3-2-A-K-Q is NOT a straight.  Ties broken by comparing highest card in sequence. 
 
 ## Resources
-- https://towardsdatascience.com/poker-with-python-how-to-score-all-hands-in-texas-holdem-6fd750ef73d
+- [Inspiration for scoring hands](https://towardsdatascience.com/poker-with-python-how-to-score-all-hands-in-texas-holdem-6fd750ef73d)
+- [Help on separating card values & suits](https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python)
+- [Help on separating card values & suits](https://docs.python.org/3/library/re.html)
