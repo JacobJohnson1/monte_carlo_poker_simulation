@@ -25,7 +25,8 @@ def highCard(handList):
 # def onePair(handList):
 #     pairBool = None
 #     for x in range(0, len(handList)):
-#         # do something
+#         # if there's a pair:
+            # handList[5] += (valueOfPair + 13) 
 #     return pairBool
         
 # def twoPair(handList):
