@@ -41,11 +41,38 @@ def pairCheck(handList):
         
 
 def threeOfAKind(handList):
-    for x in range(0, len(handList)):
+    numericalVals = convertLists(handList)
+    triple = []
+    for i in numericalVals:
+        if numericalVals.count(i) == 3:
+            triple.append(i)
+            numericalVals.remove(i)
+    # REMOVE LATER
+    print(triple)
+    handList[-1] += (triple[0] + 49)
+
+def straight(handList):
+    numericalVals = convertLists(handList)
+    numericalVals = sorted(numericalVals)
+    span = (numericalVals[-1] - numericalVals[0])
+    straightScore = 0
+    if span == 4:
+        for i in range(0, len(numericalVals)):
+            straightScore += numericalVals[i]
+        handList[-1] += (straightScore + 44)
 
 
-# def straight(handList):
-#     for x in range(0, len(handList)):
+def fourOfAKind(handList):
+    numericalVals = convertLists(handList)
+    quads = []
+    for i in numericalVals:
+        if numericalVals.count(i) == 4:
+            quads.append(i)
+            numericalVals.remove(i)
+    # REMOVE LATER
+    print(quads)
+    #INCORRECT SCORING! SORT THIS OUT LATER
+    handList[-1] += (quads[0] + 49)
 
 # def flush(handList):
 #     for x in range(0, len(handList)):

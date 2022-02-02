@@ -30,5 +30,8 @@ for x in range(0, 2):
     player5 = [deck[-16], deck[-17], deck[-18], deck[-19], deck[-20], 0]
     player6 = [deck[-21], deck[-22], deck[-23], deck[-24], deck[-25], 0]
 
-handChecker.threeOfAKind(myHand)
+# testing below
+# fakeHand = ['2H', '3S', '4C', '5D', '6H', 0]
+# print(fakeHand)
+handChecker.straight(myHand)
 print(myHand)
