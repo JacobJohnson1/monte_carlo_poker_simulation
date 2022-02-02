@@ -18,6 +18,7 @@ myCard4 = deck.pop()
 myCard5 = deck.pop()
 
 myHand = [myCard1, myCard2, myCard3, myCard4, myCard5, 0]
+# remove later; just for testing
 print(myHand)
 
 #change range to 500/1000 once everything is working correctly

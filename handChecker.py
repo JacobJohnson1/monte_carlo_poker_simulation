@@ -10,17 +10,20 @@ def checkHands(myHand, hand2, hand3, hand4, hand5, hand6):
     f.write(myHand)
     f.close
 
-# FUNCTIONS:
 def highCard(handList):
     numericalValues = []
-    handListStr = (handList[0] + " " + handList[1] + " " + handList[2] + " " + handList[3] + " " + handList[4])
+    handListStr = ''
+    for i in range(0, len(handList)-1):
+        handListStr += (handList[i] + " ")
     numericalValues = (re.findall(r'\d+', handListStr))
     numericalValues = [int(i) for i in numericalValues]
+    print(numericalValues)
     highest = numericalValues[0]
-    for i in range(1,4):
+    print(highest)
+    for i in range(1, len(numericalValues)):
         if numericalValues[i] > highest:
             highest = numericalValues[i]
-    handList[5] += highest
+    handList[-1] += highest
 
 # def onePair(handList):
 #     pairBool = None
