@@ -19,6 +19,14 @@ def convertLists(listOfStrings):
     listOfInts = [int(i) for i in listOfInts]
     return listOfInts
 
+def isolateSuits(handList):
+    listOfSuits = []
+    convertibleStr = ''
+    for i in range(0, len(handList)-1):
+        convertibleStr += (handList[i])
+    listOfSuits = (re.findall(r'\D', convertibleStr))
+    return listOfSuits
+
 def highCard(handList):
     numericalVals = convertLists(handList)
     highest = numericalVals[0]
@@ -47,10 +55,9 @@ def threeOfAKind(handList):
         if numericalVals.count(i) == 3:
             triple.append(i)
             numericalVals.remove(i)
-    # REMOVE LATER
-    print(triple)
     handList[-1] += (triple[0] + 49)
 
+# HOW TO HANDLE LOWEST STRAIGHT: A-2-3-4-5???
 def straight(handList):
     numericalVals = convertLists(handList)
     numericalVals = sorted(numericalVals)
@@ -61,6 +68,18 @@ def straight(handList):
             straightScore += numericalVals[i]
         handList[-1] += (straightScore + 44)
 
+def flush(handList):
+    onlySuits = isolateSuits(handList)
+    
+    highest = handList[0]
+    for i in range(1, len(handList)):
+        if handList[i] > highest:
+            highest = handList[i]
+    if len(set(onlySuits)) == 1:
+        handList[-1] += (highest + 98)
+
+# def fullHouse(handList):
+#     for x in range(0, len(handList)):
 
 def fourOfAKind(handList):
     numericalVals = convertLists(handList)
@@ -74,11 +93,6 @@ def fourOfAKind(handList):
     #INCORRECT SCORING! SORT THIS OUT LATER
     handList[-1] += (quads[0] + 49)
 
-# def flush(handList):
-#     for x in range(0, len(handList)):
-                          
-# def fullHouse(handList):
-#     for x in range(0, len(handList)):
-  
+    # def straightFlush():
 
-# Append numerical score to the end of list (hand) as string
+    # def royalFlush():

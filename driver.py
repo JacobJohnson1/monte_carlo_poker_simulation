@@ -19,7 +19,7 @@ myCard5 = deck.pop()
 
 myHand = [myCard1, myCard2, myCard3, myCard4, myCard5, 0]
 # remove later; just for testing
-print(myHand)
+# print(myHand)
 
 #change range to 500/1000 once everything is working correctly
 for x in range(0, 2):
@@ -31,7 +31,7 @@ for x in range(0, 2):
     player6 = [deck[-21], deck[-22], deck[-23], deck[-24], deck[-25], 0]
 
 # testing below
-# fakeHand = ['2H', '3S', '4C', '5D', '6H', 0]
-# print(fakeHand)
-handChecker.straight(myHand)
-print(myHand)
+fakeHand = ['2H', '3H', '4H', '5H', '6H', 0]
+print(fakeHand)
+handChecker.flush(fakeHand)
+print(fakeHand)
