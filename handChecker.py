@@ -4,9 +4,7 @@ from ctypes import sizeof
 
 # RENAME: THIS IS JUST FOR PRINTING OUT?
 def checkHands(myHand, hand2, hand3, hand4, hand5, hand6):
-    
     f = open("output.txt", "w")
-
     f.write(myHand)
     f.close
 
@@ -46,7 +44,6 @@ def pairCheck(handList):
         handList[-1] += (pairs[0] + 13)
     if len(pairs) == 2:
         handList[-1] += (pairs[0] + pairs[1] + 23)
-        
 
 def threeOfAKind(handList):
     numericalVals = convertLists(handList)
@@ -75,7 +72,12 @@ def flush(handList):
     for i in range(1, len(numericalVals)):
         if [i] > numericalVals:
             highest = numericalVals[i]
-    if len(set(onlySuits)) == 1:
+    if (len(set(onlySuits)) == 1) and is-a-straight and are royals:
+        # royal flush scoring
+    elif (len(set(onlySuits)) == 1) and is-a-straight:
+        # straight flush scoring
+    elif len(set(onlySuits)) == 1:
+        # BASIC FLUSH
         handList[-1] += (highest + 98)
 
 def fullHouse(handList):
@@ -108,8 +110,3 @@ def fourOfAKind(handList):
             numericalVals.append(handList[-1])
             highCard(numericalVals)
             handList[-1] = numericalVals[-1]
-
-
-    # def straightFlush():
-
-    # def royalFlush():
