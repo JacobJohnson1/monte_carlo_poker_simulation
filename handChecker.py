@@ -2,7 +2,7 @@
 import re
 from ctypes import sizeof
 
-
+# RENAME: THIS IS JUST FOR PRINTING OUT?
 def checkHands(myHand, hand2, hand3, hand4, hand5, hand6):
     
     f = open("output.txt", "w")
@@ -70,16 +70,30 @@ def straight(handList):
 
 def flush(handList):
     onlySuits = isolateSuits(handList)
-    
-    highest = handList[0]
-    for i in range(1, len(handList)):
-        if handList[i] > highest:
-            highest = handList[i]
+    numericalVals = convertLists(handList)
+    highest = numericalVals[0]
+    for i in range(1, len(numericalVals)):
+        if [i] > numericalVals:
+            highest = numericalVals[i]
     if len(set(onlySuits)) == 1:
         handList[-1] += (highest + 98)
 
-# def fullHouse(handList):
-#     for x in range(0, len(handList)):
+def fullHouse(handList):
+    numericalVals = convertLists(handList)
+    pair = []
+    for i in numericalVals:
+        if numericalVals.count(i) == 2:
+            pair.append(i)
+            numericalVals.remove(i)
+    triple = []
+    for i in numericalVals:
+        if numericalVals.count(i) == 3:
+            triple.append(i)
+            numericalVals.remove(i)
+    # REMOVE LATER
+    print(triple)
+    print(pair)
+    handList[-1] += ((triple[0] * 8) + pair[0] + 94)
 
 def fourOfAKind(handList):
     numericalVals = convertLists(handList)
@@ -87,11 +101,14 @@ def fourOfAKind(handList):
     for i in numericalVals:
         if numericalVals.count(i) == 4:
             quads.append(i)
+            numericalVals = list(set(numericalVals))
             numericalVals.remove(i)
-    # REMOVE LATER
-    print(quads)
-    #INCORRECT SCORING! SORT THIS OUT LATER
-    handList[-1] += (quads[0] + 49)
+            handList[-1] += ((quads[0] + 13) + 202)
+            numericalVals = [str(i) for i in numericalVals]
+            numericalVals.append(handList[-1])
+            highCard(numericalVals)
+            handList[-1] = numericalVals[-1]
+
 
     # def straightFlush():
 
