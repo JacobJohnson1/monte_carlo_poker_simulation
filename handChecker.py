@@ -68,16 +68,18 @@ def straight(handList):
 def flush(handList):
     onlySuits = isolateSuits(handList)
     numericalVals = convertLists(handList)
+    numericalVals = sorted(numericalVals)
+    span = (numericalVals[-1] - numericalVals[0])
     highest = numericalVals[0]
     for i in range(1, len(numericalVals)):
         if [i] > numericalVals:
             highest = numericalVals[i]
-    if (len(set(onlySuits)) == 1) and is-a-straight and are royals:
-        # royal flush scoring
-    elif (len(set(onlySuits)) == 1) and is-a-straight:
-        # straight flush scoring
+    if ((len(set(onlySuits)) == 1) and (span == 4)):
+        straightFlushScoring = 0
+        for i in range(0, len(numericalVals)):
+            straightFlushScoring += numericalVals[i]
+        handList[-1] += (straightFlushScoring + 223)
     elif len(set(onlySuits)) == 1:
-        # BASIC FLUSH
         handList[-1] += (highest + 98)
 
 def fullHouse(handList):

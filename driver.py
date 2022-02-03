@@ -31,7 +31,7 @@ for x in range(0, 2):
     player6 = [deck[-21], deck[-22], deck[-23], deck[-24], deck[-25], 0]
 
 # testing below
-fakeHand = ['14S', '14H', '13H', '14D', '14C', 0]
+fakeHand = ['14H', '12H', '13H', '10H', '11H', 0]
 print(fakeHand)
-handChecker.fourOfAKind(fakeHand)
+handChecker.flush(fakeHand)
 print(fakeHand)
