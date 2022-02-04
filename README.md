@@ -101,12 +101,11 @@ High Card:		0 - 14
 2 Pair:			28 - 50  
 3 of a Kind:	51 - 63  
 Straight:		64 - 104  
-Flush:			
-Full House:		
-Four of a Kind:	
-Straight Flush:	
-Royal Flush:	
-4 of a Kind:	
+Flush:			105 - 112  
+Full House:		113 - 219  
+4 of a Kind:	220 - 242  
+Straight Flush:	243 - 278  
+Royal Flush:	283
 
 
 

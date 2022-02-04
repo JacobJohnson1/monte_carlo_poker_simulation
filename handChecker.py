@@ -54,7 +54,6 @@ def threeOfAKind(handList):
             numericalVals.remove(i)
     handList[-1] += (triple[0] + 49)
 
-# HOW TO HANDLE LOWEST STRAIGHT: A-2-3-4-5???
 def straight(handList):
     numericalVals = convertLists(handList)
     numericalVals = sorted(numericalVals)
@@ -64,6 +63,12 @@ def straight(handList):
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
         handList[-1] += (straightScore + 44)
+    elif all(x in numericalVals for x in [14, 2, 3, 4, 5]):
+        for i in range(0, len(numericalVals)):
+            straightScore += numericalVals[i]
+            handList[-1] += (straightScore + 30)
+            # THIS REQUIRES ME TO CHANGE THE ENTIRE SCORING SCALE FROM STRAIGHT UP
+            # BECAUSE THE LOWEST STRAIGHT (WITH AN ACE) NOW GIVES ME A SCORE OF 45
 
 def flush(handList):
     onlySuits = isolateSuits(handList)
