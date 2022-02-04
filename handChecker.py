@@ -63,6 +63,7 @@ def straight(handList):
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
         handList[-1] += (straightScore + 44)
+    # THIS ALSO, HASN'T BEEN TESTED!! DON'T KNOW IF IT WORKS!!
     elif all(x in numericalVals for x in [14, 2, 3, 4, 5]):
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
