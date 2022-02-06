@@ -75,8 +75,8 @@ def straight(handList):
             handList[-1] += (straightScore - lowStraightConst + straightConst)
 
 def flush(handList):
-    flushConst = 98
-    straightFlushConst = 223
+    flushConst = 104
+    straightFlushConst = 234
     onlySuits = isolateSuits(handList)
     numericalVals = convertLists(handList)
     numericalVals = sorted(numericalVals)
@@ -94,7 +94,7 @@ def flush(handList):
         handList[-1] += (highest + flushConst)
 
 def fullHouse(handList):
-    fullHouseConst = 94
+    fullHouseConst = 100
     numericalVals = convertLists(handList)
     pair = []
     for i in numericalVals:
@@ -112,14 +112,16 @@ def fullHouse(handList):
     handList[-1] += ((triple[0] * 8) + pair[0] + fullHouseConst)
 
 def fourOfAKind(handList):
-    fourOAKConst = 215
+    fourOAKConst = 221 #maybe take away 13 from this #?
     numericalVals = convertLists(handList)
     quads = []
     for i in numericalVals:
         if numericalVals.count(i) == 4:
             quads.append(i)
+            # remove all of the quads from original set
             numericalVals = list(set(numericalVals))
             numericalVals.remove(i)
+
             handList[-1] += (quads[0] + fourOAKConst)
             numericalVals = [str(i) for i in numericalVals]
             numericalVals.append(handList[-1])
