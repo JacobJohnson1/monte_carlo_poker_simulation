@@ -34,6 +34,8 @@ def highCard(handList):
     handList[-1] += highest
 
 def pairCheck(handList):
+    onePairConst = 13
+    twoPairConst = 23
     numericalVals = convertLists(handList)
     pairs = []
     for i in numericalVals:
@@ -41,37 +43,40 @@ def pairCheck(handList):
             pairs.append(i)
             numericalVals.remove(i)
     if len(pairs) == 1:
-        handList[-1] += (pairs[0] + 13)
+        handList[-1] += (pairs[0] + onePairConst)
     if len(pairs) == 2:
-        handList[-1] += (pairs[0] + pairs[1] + 23)
+        handList[-1] += (pairs[0] + pairs[1] + twoPairConst)
 
 def threeOfAKind(handList):
+    threeOAKConst = 49
     numericalVals = convertLists(handList)
     triple = []
     for i in numericalVals:
         if numericalVals.count(i) == 3:
             triple.append(i)
             numericalVals.remove(i)
-    handList[-1] += (triple[0] + 49)
+    handList[-1] += (triple[0] + threeOAKConst)
 
 def straight(handList):
+    straightScore = 0
+    straightConst = 49
     numericalVals = convertLists(handList)
     numericalVals = sorted(numericalVals)
     span = (numericalVals[-1] - numericalVals[0])
-    straightScore = 0
+    lowStraightConst = 13
     if span == 4:
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
-        handList[-1] += (straightScore + 44)
+        handList[-1] += (straightScore + straightConst)
     # THIS ALSO, HASN'T BEEN TESTED!! DON'T KNOW IF IT WORKS!!
     elif all(x in numericalVals for x in [14, 2, 3, 4, 5]):
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
-            handList[-1] += (straightScore + 30)
-            # THIS REQUIRES ME TO CHANGE THE ENTIRE SCORING SCALE FROM STRAIGHT UP
-            # BECAUSE THE LOWEST STRAIGHT (WITH AN ACE) NOW GIVES ME A SCORE OF 45
+            handList[-1] += (straightScore - lowStraightConst + straightConst)
 
 def flush(handList):
+    flushConst = 98
+    straightFlushConst = 223
     onlySuits = isolateSuits(handList)
     numericalVals = convertLists(handList)
     numericalVals = sorted(numericalVals)
@@ -84,11 +89,12 @@ def flush(handList):
         straightFlushScoring = 0
         for i in range(0, len(numericalVals)):
             straightFlushScoring += numericalVals[i]
-        handList[-1] += (straightFlushScoring + 223)
+        handList[-1] += (straightFlushScoring + straightFlushConst)
     elif len(set(onlySuits)) == 1:
-        handList[-1] += (highest + 98)
+        handList[-1] += (highest + flushConst)
 
 def fullHouse(handList):
+    fullHouseConst = 94
     numericalVals = convertLists(handList)
     pair = []
     for i in numericalVals:
@@ -103,9 +109,10 @@ def fullHouse(handList):
     # REMOVE LATER
     print(triple)
     print(pair)
-    handList[-1] += ((triple[0] * 8) + pair[0] + 94)
+    handList[-1] += ((triple[0] * 8) + pair[0] + fullHouseConst)
 
 def fourOfAKind(handList):
+    fourOAKConst = 215
     numericalVals = convertLists(handList)
     quads = []
     for i in numericalVals:
@@ -113,7 +120,7 @@ def fourOfAKind(handList):
             quads.append(i)
             numericalVals = list(set(numericalVals))
             numericalVals.remove(i)
-            handList[-1] += ((quads[0] + 13) + 202)
+            handList[-1] += (quads[0] + fourOAKConst)
             numericalVals = [str(i) for i in numericalVals]
             numericalVals.append(handList[-1])
             highCard(numericalVals)
