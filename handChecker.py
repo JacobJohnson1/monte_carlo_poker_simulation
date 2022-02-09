@@ -1,12 +1,12 @@
-# import dealHandsAndShuffle
+from pickle import TRUE
 import re
 from ctypes import sizeof
 
 # RENAME: THIS IS JUST FOR PRINTING OUT?
-def checkHands(myHand, hand2, hand3, hand4, hand5, hand6):
-    f = open("output.txt", "w")
-    f.write(myHand)
-    f.close
+# def checkHands(myHand, hand2, hand3, hand4, hand5, hand6):
+#     f = open("output.txt", "w")
+#     f.write(myHand)
+#     f.close
 
 def convertLists(listOfStrings):
     listOfInts = []
@@ -68,11 +68,17 @@ def straight(handList):
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
         handList[-1] += (straightScore + straightConst)
-    # THIS ALSO, HASN'T BEEN TESTED!! DON'T KNOW IF IT WORKS!!
-    elif all(x in numericalVals for x in [14, 2, 3, 4, 5]):
+    
+    
+    elif numericalVals == [2, 3, 4, 5, 14]:
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
-            handList[-1] += (straightScore - lowStraightConst + straightConst)
+        handList[-1] += (straightScore - lowStraightConst + straightConst)
+
+def lowStraight(numericalVals):
+    numericalVals = sorted(numericalVals)
+    if numericalVals == [2, 3, 4, 5, 14]:
+        return TRUE
 
 def flush(handList):
     flushConst = 104
@@ -83,13 +89,15 @@ def flush(handList):
     span = (numericalVals[-1] - numericalVals[0])
     highest = numericalVals[0]
     for i in range(1, len(numericalVals)):
-        if [i] > numericalVals:
+        if numericalVals[i] > highest:
             highest = numericalVals[i]
+    
     if ((len(set(onlySuits)) == 1) and (span == 4)):
         straightFlushScoring = 0
         for i in range(0, len(numericalVals)):
             straightFlushScoring += numericalVals[i]
         handList[-1] += (straightFlushScoring + straightFlushConst)
+    # add in an elif for low straight flush
     elif len(set(onlySuits)) == 1:
         handList[-1] += (highest + flushConst)
 
@@ -106,9 +114,6 @@ def fullHouse(handList):
         if numericalVals.count(i) == 3:
             triple.append(i)
             numericalVals.remove(i)
-    # REMOVE LATER
-    print(triple)
-    print(pair)
     handList[-1] += ((triple[0] * 8) + pair[0] + fullHouseConst)
 
 def fourOfAKind(handList):
@@ -118,12 +123,16 @@ def fourOfAKind(handList):
     for i in numericalVals:
         if numericalVals.count(i) == 4:
             quads.append(i)
-            # remove all of the quads from original set
             numericalVals = list(set(numericalVals))
             numericalVals.remove(i)
-
             handList[-1] += (quads[0] + fourOAKConst)
             numericalVals = [str(i) for i in numericalVals]
             numericalVals.append(handList[-1])
             highCard(numericalVals)
             handList[-1] = numericalVals[-1]
+
+# create a function to keep checking for next highest card in case of tie
+
+
+def score():
+    
