@@ -34,13 +34,15 @@ def driverFunction():
     # while a boolean is not false, keep asking to do new hand
 
     # change to 1000 soon
-    for i in range(0, 500):
+    for i in range(0, 1):
         player2 = dealOponentHand(deck)
         player3 = dealOponentHand(deck)
         player4 = dealOponentHand(deck)
         player5 = dealOponentHand(deck)
         player6 = dealOponentHand(deck)
 
+        handChecker.score(myHand)
+    
     
 
 

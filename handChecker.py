@@ -133,6 +133,11 @@ def fourOfAKind(handList):
 
 # create a function to keep checking for next highest card in case of tie
 
-
-def score():
-    
+def score(myHand):
+    flush(myHand)
+    straight(myHand)
+    fourOfAKind(myHand)
+    fullHouse(myHand)
+    threeOfAKind(myHand)
+    pairCheck(myHand)
+    print(myHand)
