@@ -55,7 +55,8 @@ def threeOfAKind(handList):
         if numericalVals.count(i) == 3:
             triple.append(i)
             numericalVals.remove(i)
-    handList[-1] += (triple[0] + threeOAKConst)
+    if triple:
+        handList[-1] += (triple[0] + threeOAKConst)
 
 def straight(handList):
     straightScore = 0
@@ -68,9 +69,7 @@ def straight(handList):
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
         handList[-1] += (straightScore + straightConst)
-    
-    
-    elif numericalVals == [2, 3, 4, 5, 14]:
+    elif lowStraight(numericalVals):
         for i in range(0, len(numericalVals)):
             straightScore += numericalVals[i]
         handList[-1] += (straightScore - lowStraightConst + straightConst)
@@ -83,6 +82,7 @@ def lowStraight(numericalVals):
 def flush(handList):
     flushConst = 104
     straightFlushConst = 234
+    straightFlushScoring = 0
     onlySuits = isolateSuits(handList)
     numericalVals = convertLists(handList)
     numericalVals = sorted(numericalVals)
@@ -91,13 +91,14 @@ def flush(handList):
     for i in range(1, len(numericalVals)):
         if numericalVals[i] > highest:
             highest = numericalVals[i]
-    
     if ((len(set(onlySuits)) == 1) and (span == 4)):
-        straightFlushScoring = 0
         for i in range(0, len(numericalVals)):
             straightFlushScoring += numericalVals[i]
         handList[-1] += (straightFlushScoring + straightFlushConst)
-    # add in an elif for low straight flush
+    elif len(set(onlySuits)) == 1 and lowStraight(numericalVals):
+        for i in range(0, len(numericalVals)):
+            straightFlushScoring += numericalVals[i]
+        handList[-1] += (straightFlushScoring + straightFlushConst)
     elif len(set(onlySuits)) == 1:
         handList[-1] += (highest + flushConst)
 
@@ -114,7 +115,8 @@ def fullHouse(handList):
         if numericalVals.count(i) == 3:
             triple.append(i)
             numericalVals.remove(i)
-    handList[-1] += ((triple[0] * 8) + pair[0] + fullHouseConst)
+    if triple and pair:
+        handList[-1] += ((triple[0] * 8) + pair[0] + fullHouseConst)
 
 def fourOfAKind(handList):
     fourOAKConst = 221 #maybe take away 13 from this #?
@@ -140,4 +142,5 @@ def score(myHand):
     fullHouse(myHand)
     threeOfAKind(myHand)
     pairCheck(myHand)
+    highCard(myHand)
     print(myHand)
