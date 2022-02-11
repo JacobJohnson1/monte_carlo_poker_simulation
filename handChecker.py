@@ -35,6 +35,7 @@ def highCardTieBreaker(handList):
     handList[-1] += (numVals[0]/100000 + numVals[1]/10000 + numVals[2]/1000 + numVals[3]/100 + max(numVals))
 
 def pairCheck(handList):
+    onePairConst = 14
     twoPairConst = 30
     numVals = convertLists(handList)
     pairs = []
@@ -42,60 +43,50 @@ def pairCheck(handList):
         if numVals.count(i) == 2:
             pairs.append(i)
             numVals.remove(i)
-    # REMOVE ANYTHING IN PAIRS[] FROM NUMERICALVALS[]
+    notPairs = [x for x in numVals if x not in pairs]
+    print(notPairs)
+    sorted(notPairs)
     if len(pairs) == 1:
-        handList[-1] += (pairs[0] + max(numVals))
+        handList[-1] += (onePairConst + pairs[0] + notPairs[0]/10000 + notPairs[1]/1000 + notPairs[2]/100)
     if len(pairs) == 2:
-        numVals = sorted(numVals,reverse=True)
-        handList[-1] += twoPairConst + max(pairs) + min(pairs)/100 + numVals[0]/1000
+        numVals = sorted(numVals)
+        handList[-1] += (twoPairConst + max(pairs) + min(pairs)/100 + numVals[0]/1000)
 
 def threeOfAKind(handList):
-    threeOAKConst = 45 #DON'T THINK THIS IS THE RIGHT VALUE
+    threeOAKConst = 45
     numVals = convertLists(handList)
     triple = []
     for i in numVals:
         if numVals.count(i) == 3:
             triple.append(i)
             numVals.remove(i)
-    # REMOVE ANYTHING IN TRIPLE[] FROM NUMERICALVALS[]
+    notPairs = [x for x in numVals if x not in triple]
     if triple:
-        handList[-1] += threeOAKConst + triple[0] + max(numVals) + min(numVals)/1000
+        handList[-1] += threeOAKConst + triple[0] + max(notPairs)/100 + min(notPairs)/1000
 
 def straight(handList):
-    straightScore = 0
-    lowStraightConst = 13
-    straightConst = 49 #DON'T THINK THIS IS THE RIGHT VALUE
+    straightConst = 60
     numVals = convertLists(handList)
     numVals = sorted(numVals)
     span = (numVals[-1] - numVals[0])
-    lowStraightConst = 13
     if span == 4:
-        for i in range(0, len(numVals)):
-            straightScore += numVals[i]
-        handList[-1] += (straightScore + straightConst)
+        handList[-1] += (max(numVals) + straightConst)
     elif numVals == [2,3,4,5,14]:
-        for i in range(0, len(numVals)):
-            straightScore += numVals[i]
-        handList[-1] += (straightScore - lowStraightConst + straightConst)
+        handList[-1] += (numVals[3] + straightConst)
 
-# SCORING NEEDS TO BE FIXED HERE
 def flush(handList):
-    flushConst = 75 #ish
-    straightFlushScoring = 0
+    flushConst = 75
+    straightFlushConst = 58
     onlySuits = isolateSuits(handList)
     numVals = convertLists(handList)
     numVals = sorted(numVals)
     span = (numVals[-1] - numVals[0])
     if ((len(set(onlySuits)) == 1) and (span == 4)):
-        for i in range(0, len(numVals)):
-            straightFlushScoring += numVals[i]
-        handList[-1] += (straightFlushScoring)
+        handList[-1] += (max(numVals) + flushConst + straightFlushConst)
     elif len(set(onlySuits)) == 1 and numVals == [2,3,4,5,14]:
-        for i in range(0, len(numVals)):
-            straightFlushScoring += numVals[i]
-        handList[-1] += (straightFlushScoring)
+        handList[-1] += (numVals[3] + flushConst + straightFlushConst)
     elif len(set(onlySuits)) == 1:
-        handList[-1] += max(numVals) + flushConst
+        handList[-1] += (max(numVals) + flushConst)
 
 def fullHouse(handList):
     fullHouseConst = 90
@@ -114,21 +105,14 @@ def fullHouse(handList):
         handList[-1] += (triple[0] + pair[0] + fullHouseConst)
 
 def fourOfAKind(handList):
-    fourOAKConst = 221 #WRONG
+    fourOfAKindConst = 118
     numVals = convertLists(handList)
     quads = []
     for i in numVals:
         if numVals.count(i) == 4:
             quads.append(i)
-            numVals = list(set(numVals))
-            numVals.remove(i)
-            handList[-1] += (quads[0] + fourOAKConst)
-            numVals = [str(i) for i in numVals]
-            numVals.append(handList[-1])
-            max(numVals)
-            handList[-1] = numVals[-1]
-            numVals = convertLists(numVals)
-            handList[-1] += numVals[0]
+    remainingCard = [x for x in numVals if x not in quads]
+    handList[-1] += (fourOfAKindConst + quads[0] + remainingCard[0]/100)
 
 def score(currentHand):
     flush(currentHand)
@@ -137,8 +121,6 @@ def score(currentHand):
     fullHouse(currentHand)
     threeOfAKind(currentHand)
     pairCheck(currentHand)
-
     if currentHand[-1] == 0:
         highCardTieBreaker(currentHand)
-
     return(currentHand[-1])

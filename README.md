@@ -95,16 +95,16 @@ count as high (A-K-Q-J-10) or low (5-4-3-2-A). It is not possible to go �aroun
 3-2-A-K-Q is NOT a straight.  Ties broken by comparing highest card in sequence. 
 
 ## Scoring    
-0  <  High Card < 15
-15 <  1 Pair    < 
-2 Pair:			28 - 50  
-3 of a Kind:	51 - 63  
-Straight:		64 - 109  
-Flush:			110 - 118  
-Full House:		119 - 225  
-4 of a Kind:	220 - 248  
-Straight Flush:	249 - 289  
-Royal Flush:	294
+0   <  High Card        <  15
+15  <  1 Pair           <  30
+31  <  2 Pair           <  45 
+46  <  3 of a Kind      <  60
+61  <= Straight         <= 74
+75  <  Flush            <  89
+90  <  Full House       <  117
+118 <  4 of a Kind      <  133
+133 <  Straight Flush   <  147
+Royal Flush = 147	
 
 
 
