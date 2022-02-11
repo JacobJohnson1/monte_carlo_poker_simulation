@@ -44,7 +44,6 @@ def pairCheck(handList):
             pairs.append(i)
             numVals.remove(i)
     notPairs = [x for x in numVals if x not in pairs]
-    print(notPairs)
     sorted(notPairs)
     if len(pairs) == 1:
         handList[-1] += (onePairConst + pairs[0] + notPairs[0]/10000 + notPairs[1]/1000 + notPairs[2]/100)
@@ -111,8 +110,8 @@ def fourOfAKind(handList):
     for i in numVals:
         if numVals.count(i) == 4:
             quads.append(i)
-    remainingCard = [x for x in numVals if x not in quads]
-    handList[-1] += (fourOfAKindConst + quads[0] + remainingCard[0]/100)
+            remainingCard = [x for x in numVals if x not in quads]
+            handList[-1] += (fourOfAKindConst + quads[0] + remainingCard[0]/100)
 
 def score(currentHand):
     flush(currentHand)
