@@ -2,17 +2,21 @@ from pickle import TRUE
 import re
 from ctypes import sizeof
 
-# RENAME: THIS IS JUST FOR PRINTING OUT?
-# def checkHands(myHand, hand2, hand3, hand4, hand5, hand6):
-#     f = open("output.txt", "w")
+# def printingTextFile(myHand):
+#     f = open("output.txt", "a")
+
+#     convertLists(myHand)
 #     f.write(myHand)
 #     f.close
+
+# def printingCSVFile():
+#     do stuff
 
 def convertLists(listOfStrings):
     listOfInts = []
     convertibleStr = ''
     for i in range(0, len(listOfStrings)-1):
-        convertibleStr += (listOfStrings[i] + " ")
+        convertibleStr += (str(listOfStrings[i]) + " ")
     listOfInts = (re.findall(r'\d+', convertibleStr))
     listOfInts = [int(i) for i in listOfInts]
     return listOfInts
@@ -25,122 +29,116 @@ def isolateSuits(handList):
     listOfSuits = (re.findall(r'\D', convertibleStr))
     return listOfSuits
 
-def highCard(handList):
-    numericalVals = convertLists(handList)
-    highest = numericalVals[0]
-    for i in range(1, len(numericalVals)):
-        if numericalVals[i] > highest:
-            highest = numericalVals[i]
-    handList[-1] += highest
+def highCardTieBreaker(handList):
+    numVals = convertLists(handList)
+    numVals = sorted(numVals)
+    handList[-1] += (numVals[0]/100000 + numVals[1]/10000 + numVals[2]/1000 + numVals[3]/100 + max(numVals))
 
 def pairCheck(handList):
-    onePairConst = 13
-    twoPairConst = 23
-    numericalVals = convertLists(handList)
+    twoPairConst = 30
+    numVals = convertLists(handList)
     pairs = []
-    for i in numericalVals:
-        if numericalVals.count(i) == 2:
+    for i in numVals:
+        if numVals.count(i) == 2:
             pairs.append(i)
-            numericalVals.remove(i)
+            numVals.remove(i)
+    # REMOVE ANYTHING IN PAIRS[] FROM NUMERICALVALS[]
     if len(pairs) == 1:
-        handList[-1] += (pairs[0] + onePairConst)
+        handList[-1] += (pairs[0] + max(numVals))
     if len(pairs) == 2:
-        handList[-1] += (pairs[0] + pairs[1] + twoPairConst)
+        numVals = sorted(numVals,reverse=True)
+        handList[-1] += twoPairConst + max(pairs) + min(pairs)/100 + numVals[0]/1000
 
 def threeOfAKind(handList):
-    threeOAKConst = 49
-    numericalVals = convertLists(handList)
+    threeOAKConst = 45 #DON'T THINK THIS IS THE RIGHT VALUE
+    numVals = convertLists(handList)
     triple = []
-    for i in numericalVals:
-        if numericalVals.count(i) == 3:
+    for i in numVals:
+        if numVals.count(i) == 3:
             triple.append(i)
-            numericalVals.remove(i)
+            numVals.remove(i)
+    # REMOVE ANYTHING IN TRIPLE[] FROM NUMERICALVALS[]
     if triple:
-        handList[-1] += (triple[0] + threeOAKConst)
+        handList[-1] += threeOAKConst + triple[0] + max(numVals) + min(numVals)/1000
 
 def straight(handList):
     straightScore = 0
-    straightConst = 49
-    numericalVals = convertLists(handList)
-    numericalVals = sorted(numericalVals)
-    span = (numericalVals[-1] - numericalVals[0])
+    lowStraightConst = 13
+    straightConst = 49 #DON'T THINK THIS IS THE RIGHT VALUE
+    numVals = convertLists(handList)
+    numVals = sorted(numVals)
+    span = (numVals[-1] - numVals[0])
     lowStraightConst = 13
     if span == 4:
-        for i in range(0, len(numericalVals)):
-            straightScore += numericalVals[i]
+        for i in range(0, len(numVals)):
+            straightScore += numVals[i]
         handList[-1] += (straightScore + straightConst)
-    elif lowStraight(numericalVals):
-        for i in range(0, len(numericalVals)):
-            straightScore += numericalVals[i]
+    elif numVals == [2,3,4,5,14]:
+        for i in range(0, len(numVals)):
+            straightScore += numVals[i]
         handList[-1] += (straightScore - lowStraightConst + straightConst)
 
-def lowStraight(numericalVals):
-    numericalVals = sorted(numericalVals)
-    if numericalVals == [2, 3, 4, 5, 14]:
-        return TRUE
-
+# SCORING NEEDS TO BE FIXED HERE
 def flush(handList):
-    flushConst = 104
-    straightFlushConst = 234
+    flushConst = 75 #ish
     straightFlushScoring = 0
     onlySuits = isolateSuits(handList)
-    numericalVals = convertLists(handList)
-    numericalVals = sorted(numericalVals)
-    span = (numericalVals[-1] - numericalVals[0])
-    highest = numericalVals[0]
-    for i in range(1, len(numericalVals)):
-        if numericalVals[i] > highest:
-            highest = numericalVals[i]
+    numVals = convertLists(handList)
+    numVals = sorted(numVals)
+    span = (numVals[-1] - numVals[0])
     if ((len(set(onlySuits)) == 1) and (span == 4)):
-        for i in range(0, len(numericalVals)):
-            straightFlushScoring += numericalVals[i]
-        handList[-1] += (straightFlushScoring + straightFlushConst)
-    elif len(set(onlySuits)) == 1 and lowStraight(numericalVals):
-        for i in range(0, len(numericalVals)):
-            straightFlushScoring += numericalVals[i]
-        handList[-1] += (straightFlushScoring + straightFlushConst)
+        for i in range(0, len(numVals)):
+            straightFlushScoring += numVals[i]
+        handList[-1] += (straightFlushScoring)
+    elif len(set(onlySuits)) == 1 and numVals == [2,3,4,5,14]:
+        for i in range(0, len(numVals)):
+            straightFlushScoring += numVals[i]
+        handList[-1] += (straightFlushScoring)
     elif len(set(onlySuits)) == 1:
-        handList[-1] += (highest + flushConst)
+        handList[-1] += max(numVals) + flushConst
 
 def fullHouse(handList):
-    fullHouseConst = 100
-    numericalVals = convertLists(handList)
+    fullHouseConst = 90
+    numVals = convertLists(handList)
     pair = []
-    for i in numericalVals:
-        if numericalVals.count(i) == 2:
+    for i in numVals:
+        if numVals.count(i) == 2:
             pair.append(i)
-            numericalVals.remove(i)
+            numVals.remove(i)
     triple = []
-    for i in numericalVals:
-        if numericalVals.count(i) == 3:
+    for i in numVals:
+        if numVals.count(i) == 3:
             triple.append(i)
-            numericalVals.remove(i)
+            numVals.remove(i)
     if triple and pair:
-        handList[-1] += ((triple[0] * 8) + pair[0] + fullHouseConst)
+        handList[-1] += (triple[0] + pair[0] + fullHouseConst)
 
 def fourOfAKind(handList):
-    fourOAKConst = 221 #maybe take away 13 from this #?
-    numericalVals = convertLists(handList)
+    fourOAKConst = 221 #WRONG
+    numVals = convertLists(handList)
     quads = []
-    for i in numericalVals:
-        if numericalVals.count(i) == 4:
+    for i in numVals:
+        if numVals.count(i) == 4:
             quads.append(i)
-            numericalVals = list(set(numericalVals))
-            numericalVals.remove(i)
+            numVals = list(set(numVals))
+            numVals.remove(i)
             handList[-1] += (quads[0] + fourOAKConst)
-            numericalVals = [str(i) for i in numericalVals]
-            numericalVals.append(handList[-1])
-            highCard(numericalVals)
-            handList[-1] = numericalVals[-1]
+            numVals = [str(i) for i in numVals]
+            numVals.append(handList[-1])
+            max(numVals)
+            handList[-1] = numVals[-1]
+            numVals = convertLists(numVals)
+            handList[-1] += numVals[0]
 
-# create a function to keep checking for next highest card in case of tie
+def score(currentHand):
+    flush(currentHand)
+    straight(currentHand)
+    fourOfAKind(currentHand)
+    fullHouse(currentHand)
+    threeOfAKind(currentHand)
+    pairCheck(currentHand)
 
-def score(myHand):
-    flush(myHand)
-    straight(myHand)
-    fourOfAKind(myHand)
-    fullHouse(myHand)
-    threeOfAKind(myHand)
-    pairCheck(myHand)
-    highCard(myHand)
-    print(myHand)
+    if currentHand[-1] == 0:
+        highCardTieBreaker(currentHand)
+
+    return(currentHand[-1])
