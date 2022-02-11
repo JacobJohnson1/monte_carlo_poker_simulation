@@ -1,5 +1,5 @@
 import random
-import handChecker
+import handScorer
 
 def createDeck():
     numbers=list(range(2,15))
@@ -15,15 +15,10 @@ def dealMyHand(deck):
     myHand = [deck.pop(), deck.pop(), deck.pop(), deck.pop(), deck.pop(), 0]
     return myHand
 
-def dealOponentHand(deck):
-    random.shuffle(deck)
-    playerHand = [deck.pop(), deck.pop(), deck.pop(), deck.pop(), deck.pop(), 0]
-    return playerHand
-
-# fakeHand = ['14H', '14S', '14D', '14C', '13H', 0]
-# fakeHand = ['12H', '13H', '11H', '10H', '9H', 0]
+# # fakeHand = ['14H', '14S', '14D', '14C', '13H', 0]
+# fakeHand = ['12H', '12H', '11H', '9D', '9H', 0]
 # print(fakeHand)
-# handChecker.flush(fakeHand)
+# handScorer.pairCheck(fakeHand)
 # print(fakeHand)
 
 def driverFunction():
@@ -31,23 +26,31 @@ def driverFunction():
     random.shuffle(deck)
     myHand = dealMyHand(deck)
     print(myHand)
-    # while a boolean is not false, keep asking to do new hand
 
-    # change to 1000 soon
-    for i in range(0, 1):
+    myScore = handScorer.score(myHand)
+    handScorer.labelHands(myHand)
+
+    for i in range(0, 100):
         winCounter = 0
-        player2 = dealOponentHand(deck)
-        player3 = dealOponentHand(deck)
-        player4 = dealOponentHand(deck)
-        player5 = dealOponentHand(deck)
-        player6 = dealOponentHand(deck)
 
-        myScore = handChecker.score(myHand)
-        Score2 = handChecker.score(player2)
-        Score3 = handChecker.score(player3)
-        Score4 = handChecker.score(player4)
-        Score5 = handChecker.score(player5)
-        Score6 = handChecker.score(player6)
+        player2 = [deck[-1], deck[-2], deck[-3], deck[-4], deck[-5], 0]
+        player3 = [deck[-6], deck[-7], deck[-8], deck[-9], deck[-10], 0]
+        player4 = [deck[-11], deck[-12], deck[-13], deck[-14], deck[-15], 0]
+        player5 = [deck[-16], deck[-17], deck[-18], deck[-19], deck[-20], 0]
+        player6 = [deck[-21], deck[-22], deck[-23], deck[-24], deck[-25], 0]
+
+        # print(player2)
+        # print(player3)
+        # print(player4)
+        # print(player5)
+        # print(player6)
+
+
+        Score2 = handScorer.score(player2)
+        Score3 = handScorer.score(player3)
+        Score4 = handScorer.score(player4)
+        Score5 = handScorer.score(player5)
+        Score6 = handScorer.score(player6)
 
         listOfScores = [myScore, Score2, Score3, Score4, Score5, Score6]
         print(listOfScores)
@@ -61,7 +64,5 @@ def driverFunction():
             winCounter += 0.5
 
         print(winCounter)
-
-        # handChecker.printingTextFile(myHand)
 
 driverFunction()

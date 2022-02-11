@@ -49,7 +49,7 @@ def pairCheck(handList):
         handList[-1] += (onePairConst + pairs[0] + notPairs[0]/10000 + notPairs[1]/1000 + notPairs[2]/100)
     if len(pairs) == 2:
         numVals = sorted(numVals)
-        handList[-1] += (twoPairConst + max(pairs) + min(pairs)/100 + numVals[0]/1000)
+        handList[-1] += (twoPairConst + max(pairs) + min(pairs)/100 + notPairs[0]/1000)
 
 def threeOfAKind(handList):
     threeOAKConst = 45
@@ -113,38 +113,6 @@ def fourOfAKind(handList):
             remainingCard = [x for x in numVals if x not in quads]
             handList[-1] += (fourOfAKindConst + quads[0] + remainingCard[0]/100)
 
-#where to use this
-def labelHands(score):
-    if (score < 15):
-        print("High Card")
-    if (score > 15) and (score < 30):
-        print("1 Pair")
-    if (score > 30) and (score < 45):
-        print("2 Pair")
-    if (score > 45) and (score < 60):
-        print("3 of a Kind")
-    if (score > 60) and (score < 75):
-        print("Straight")
-    if (score > 75) and (score < 89):
-        print("Flush")
-    if (score > 90) and (score < 117):
-        print("Full House")
-    if (score > 118) and (score < 133):
-        print("4 of a Kind")
-    if (score > 133) and (score < 147):
-        print("Straight Flush")
-    if (score == 147):
-        print("Royal Flush")
-
-
-
-
-
-
-
-
-
-
 def score(currentHand):
     flush(currentHand)
     straight(currentHand)
@@ -155,3 +123,31 @@ def score(currentHand):
     if currentHand[-1] == 0:
         highCardTieBreaker(currentHand)
     return(currentHand[-1])
+
+def labelHands(handList):
+    score = handList[-1]
+    if (score < 15):
+        print('High Card with a score of: %s' % score)
+    if (score > 15) and (score < 30):
+        print('1 Pair with a score of: %s' % score)
+    if (score > 30) and (score < 45):
+        print('2 Pair with a score of: %s' % score)
+    if (score > 45) and (score < 60):
+        print('3 of a Kind with a score of: %s' % score)
+    if (score > 60) and (score < 75):
+        print('Straight with a score of: %s' % score)
+    if (score > 75) and (score < 89):
+        print('Flush with a score of: %s' % score)
+    if (score > 90) and (score < 117):
+        print('Full House with a score of: %s' % score)
+    if (score > 118) and (score < 133):
+        print('4 of a Kind with a score of: %s' % score)
+    if (score > 133) and (score < 147):
+        print('Straight Flush with a score of: %s' % score)
+    if (score == 147):
+        print('Royal Flush with a score of: %s' % score)
+
+# def winPercentage():
+
+
+# def percentageOfAppearance():
