@@ -31,16 +31,16 @@ def driverFunction():
     royalFlushPercentages = []
 
     dataMatrix = [
-        [0, highCardPercentages, 0],
-        [0, onePairPercentages, 0],
-        [0, twoPairPercentages, 0],
-        [0, threeOAKPercentages, 0],
-        [0, straightPercentages, 0],
-        [0, flushPercentages, 0],
-        [0, fullHousePercentages, 0],
-        [0, fourOAKPercentages, 0],
-        [0, straighFlushPercentages, 0],
-        [0, royalFlushPercentages, 0]]
+        [0, 0, highCardPercentages, 0],
+        [0, 0, onePairPercentages, 0],
+        [0, 0, twoPairPercentages, 0],
+        [0, 0, threeOAKPercentages, 0],
+        [0, 0, straightPercentages, 0],
+        [0, 0, flushPercentages, 0],
+        [0, 0, fullHousePercentages, 0],
+        [0, 0, fourOAKPercentages, 0],
+        [0, 0, straighFlushPercentages, 0],
+        [0, 0, royalFlushPercentages, 0]]
 
 
     for i in range(0, numOfMyHands):
@@ -105,19 +105,19 @@ def driverFunction():
 
 driverFunction()
 
-# MAKE SURE TO ACTUALLY IMPLEMENT THIS IN DRIVER FUNCTION SOMEWHERE
-def addAvgs(dataMatrix):
-    for i in dataMatrix:
-        dataMatrix[i][2] = averageWin(dataMatrix[i][1])
+# MAKE SURE TO ACTUALLY IMPLEMENT THESE IN DRIVER FUNCTION SOMEWHERE vvv
+def addAvgWins(matrix):
+    for i in matrix:
+        matrix[i][3] = avgWin(matrix[i][2])
 
-def averageWin(winPercentages):
+def addOccurrencePercentages(matrix, size):
+    for i in matrix:
+        matrix[i][1] = (matrix[i][0]/size)
+
+def avgWin(winPercentages):
     total = 0
     for i in winPercentages:
         total += winPercentages[i]
     if len(winPercentages) > 0:
         avg = (total/len(winPercentages))
     return avg
-
-# fakeHand = ['11C', '8S', '7D', '10S', '10D', 0]
-# handScorer.fullHouse(fakeHand)
-# print(fakeHand)
