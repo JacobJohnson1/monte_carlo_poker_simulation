@@ -18,6 +18,23 @@ def dealMyHand(deck):
     myHand = [deck.pop(), deck.pop(), deck.pop(), deck.pop(), deck.pop(), 0]
     return myHand
 
+def addOccurrencePercentages(matrix, size):
+    for i in matrix:
+        matrix[i][1] = (matrix[i][0]/size)
+
+def avgWin(winPercentages, matrix):
+    total = 0
+    for i in range(0, len(winPercentages)):
+        total += winPercentages[i]
+    if len(winPercentages) > 0:
+        avg = (total/len(winPercentages))
+    return avg
+# local variable 'avg' referenced before assignment
+
+def addAvgWinsToMatrix(matrix):
+    for i in range(0, len(matrix)):
+        matrix[i][3] = avgWin(matrix[i][2], matrix)
+
 def driverFunction():
     numOfMyHands = 10
     
@@ -32,6 +49,7 @@ def driverFunction():
     straighFlushPercentages = []
     royalFlushPercentages = []
 
+    # occurrence of hand type, percentage of occurrence, winPercentages, average Win percentages
     dataMatrix = [
         [0, 0, highCardPercentages, 0],
         [0, 0, onePairPercentages, 0],
@@ -42,8 +60,8 @@ def driverFunction():
         [0, 0, fullHousePercentages, 0],
         [0, 0, fourOAKPercentages, 0],
         [0, 0, straighFlushPercentages, 0],
-        [0, 0, royalFlushPercentages, 0]]
-
+        [0, 0, royalFlushPercentages, 0]
+    ]
 
     for i in range(0, numOfMyHands):
         numOfGames = 10
@@ -51,76 +69,35 @@ def driverFunction():
         random.shuffle(deck)
         myHand = dealMyHand(deck)
         myScore = handScorer.score(myHand)
-        handCategory = formatAndPrint.labelHands(myHand)
+        formatAndPrint.occurrenceCounter(myHand, dataMatrix)
         winCounter = 0
         for i in range(0, numOfGames):
             random.shuffle(deck)
+
             player2 = [deck[-1], deck[-2], deck[-3], deck[-4], deck[-5], 0]
             player3 = [deck[-6], deck[-7], deck[-8], deck[-9], deck[-10], 0]
             player4 = [deck[-11], deck[-12], deck[-13], deck[-14], deck[-15], 0]
             player5 = [deck[-16], deck[-17], deck[-18], deck[-19], deck[-20], 0]
             player6 = [deck[-21], deck[-22], deck[-23], deck[-24], deck[-25], 0]
-            Score2 = handScorer.score(player2)
-            Score3 = handScorer.score(player3)
-            Score4 = handScorer.score(player4)
-            Score5 = handScorer.score(player5)
-            Score6 = handScorer.score(player6)
-            listOfScores = [myScore, Score2, Score3, Score4, Score5, Score6]
+
+            handMatrix = [myHand, player2, player3, player4, player5, player6]
+            for i in range(0, len(handMatrix)):
+                handScorer.score(handMatrix[i])
+
+            listOfScores = [handMatrix[0][-1], handMatrix[1][-1], handMatrix[2][-1], handMatrix[3][-1], handMatrix[4][-1], handMatrix[5][-1]]
             listOfScores = sorted(listOfScores)
+            
             if myScore == listOfScores[-1] and listOfScores[-1] > listOfScores[-2]:
                 winCounter += 1
             if myScore == listOfScores[-1] and listOfScores[-1] == listOfScores[-2]:
                 winCounter += 0.5
+        
         winPercentage = (winCounter/numOfGames * 100)
-       
-        if handCategory == 1:
-            dataMatrix[0][0] += 1
-            highCardPercentages.append(winPercentage)
-        if handCategory == 2:
-            dataMatrix[1][0] += 1
-            onePairPercentages.append(winPercentage)
-        if handCategory == 3:
-            dataMatrix[2][0] += 1
-            twoPairPercentages.append(winPercentage)
-        if handCategory == 4:
-            dataMatrix[3][0] += 1
-            threeOAKPercentages.append(winPercentage)
-        if handCategory == 5:
-            dataMatrix[4][0] += 1
-            straightPercentages.append(winPercentage)
-        if handCategory == 6:
-            dataMatrix[5][0] += 1
-            flushPercentages.append(winPercentage)
-        if handCategory == 7:
-            dataMatrix[6][0] += 1
-            fullHousePercentages.append(winPercentage)
-        if handCategory == 8:
-            dataMatrix[7][0] += 1
-            fourOAKPercentages.append(winPercentage)
-        if handCategory == 9:
-            dataMatrix[8][0] += 1
-            straighFlushPercentages.append(winPercentage)
-        if handCategory == 10:
-            dataMatrix[9][0] += 1
-            royalFlushPercentages.append(winPercentage)
 
     formatAndPrint.printHandTypesAndPercents(dataMatrix)
+    formatAndPrint.printCSV(handMatrix, winPercentage)
+
+    addAvgWinsToMatrix(dataMatrix)
+    addOccurrencePercentages(dataMatrix, numOfMyHands)
 
 driverFunction()
-
-# MAKE SURE TO ACTUALLY IMPLEMENT THESE IN DRIVER FUNCTION SOMEWHERE vvv
-def addAvgWins(matrix):
-    for i in matrix:
-        matrix[i][3] = avgWin(matrix[i][2])
-
-def addOccurrencePercentages(matrix, size):
-    for i in matrix:
-        matrix[i][1] = (matrix[i][0]/size)
-
-def avgWin(winPercentages):
-    total = 0
-    for i in winPercentages:
-        total += winPercentages[i]
-    if len(winPercentages) > 0:
-        avg = (total/len(winPercentages))
-    return avg
