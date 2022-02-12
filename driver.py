@@ -1,3 +1,4 @@
+from concurrent.futures import thread
 import random
 import handScorer
 
@@ -16,30 +17,33 @@ def dealMyHand(deck):
     return myHand
 
 def driverFunction():
-    numOfHands = 10
+    numOfMyHands = 10
     
-    highCardOccurrences = 0
     highCardPercentages = []
-    onePairOccurrences = 0
     onePairPercentages = []
-    twoPairOccurrences = 0
     twoPairPercentages = []
-    threeOAKOccurrences = 0
     threeOAKPercentages = []
-    straightOccurrences = 0
     straightPercentages = []
-    flushOccurrences = 0
     flushPercentages = []
-    fullHouseOccurrences = 0
     fullHousePercentages = []
-    fourOAKOccurrences = 0
     fourOAKPercentages = []
-    straighFlushOccurrences = 0
     straighFlushPercentages = []
-    royalFlushOccurrences = 0
     royalFlushPercentages = []
 
-    for i in range(0, numOfHands):
+    dataMatrix = [
+        [0, highCardPercentages, 0],
+        [0, onePairPercentages, 0],
+        [0, twoPairPercentages, 0],
+        [0, threeOAKPercentages, 0],
+        [0, straightPercentages, 0],
+        [0, flushPercentages, 0],
+        [0, fullHousePercentages, 0],
+        [0, fourOAKPercentages, 0],
+        [0, straighFlushPercentages, 0],
+        [0, royalFlushPercentages, 0]]
+
+
+    for i in range(0, numOfMyHands):
         numOfGames = 1000
         deck = createDeck()
         random.shuffle(deck)
@@ -69,49 +73,49 @@ def driverFunction():
         winPercentage = (winCounter/numOfGames * 100)
        
         if handCategory == 1:
-            highCardOccurrences += 1
+            dataMatrix[0][0] += 1
             highCardPercentages.append(winPercentage)
         if handCategory == 2:
-            onePairOccurrences += 1
+            dataMatrix[1][0] += 1
             onePairPercentages.append(winPercentage)
         if handCategory == 3:
-            twoPairOccurrences += 1
+            dataMatrix[2][0] += 1
             twoPairPercentages.append(winPercentage)
         if handCategory == 4:
-            threeOAKOccurrences += 1
+            dataMatrix[3][0] += 1
             threeOAKPercentages.append(winPercentage)
         if handCategory == 5:
-            straightOccurrences += 1
+            dataMatrix[4][0] += 1
             straightPercentages.append(winPercentage)
         if handCategory == 6:
-            flushOccurrences += 1
+            dataMatrix[5][0] += 1
             flushPercentages.append(winPercentage)
         if handCategory == 7:
-            fullHouseOccurrences += 1
+            dataMatrix[6][0] += 1
             fullHousePercentages.append(winPercentage)
         if handCategory == 8:
-            fourOAKOccurrences += 1
+            dataMatrix[7][0] += 1
             fourOAKPercentages.append(winPercentage)
         if handCategory == 9:
-            straighFlushOccurrences += 1
+            dataMatrix[8][0] += 1
             straighFlushPercentages.append(winPercentage)
         if handCategory == 10:
-            royalFlushOccurrences += 1
+            dataMatrix[9][0] += 1
             royalFlushPercentages.append(winPercentage)
-
-        print(winPercentage)
 
 driverFunction()
 
-
-
-
+# MAKE SURE TO ACTUALLY IMPLEMENT THIS IN DRIVER FUNCTION SOMEWHERE
+def addAvgs(dataMatrix):
+    for i in dataMatrix:
+        dataMatrix[i][2] = averageWin(dataMatrix[i][1])
 
 def averageWin(winPercentages):
     total = 0
     for i in winPercentages:
         total += winPercentages[i]
-    avg = (total/len(winPercentages))
+    if len(winPercentages) > 0:
+        avg = (total/len(winPercentages))
     return avg
 
 # fakeHand = ['11C', '8S', '7D', '10S', '10D', 0]
