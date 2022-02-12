@@ -1,6 +1,8 @@
 from concurrent.futures import thread
+from dataclasses import dataclass
 import random
 import handScorer
+import formatAndPrint
 
 def createDeck():
     numbers=list(range(2,15))
@@ -44,13 +46,12 @@ def driverFunction():
 
 
     for i in range(0, numOfMyHands):
-        numOfGames = 1000
+        numOfGames = 10
         deck = createDeck()
         random.shuffle(deck)
         myHand = dealMyHand(deck)
-        print(myHand)
         myScore = handScorer.score(myHand)
-        handCategory = handScorer.labelHands(myHand)
+        handCategory = formatAndPrint.labelHands(myHand)
         winCounter = 0
         for i in range(0, numOfGames):
             random.shuffle(deck)
@@ -102,6 +103,8 @@ def driverFunction():
         if handCategory == 10:
             dataMatrix[9][0] += 1
             royalFlushPercentages.append(winPercentage)
+
+    formatAndPrint.printHandTypesAndPercents(dataMatrix)
 
 driverFunction()
 
