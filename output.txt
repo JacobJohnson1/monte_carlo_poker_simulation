@@ -1,20 +1,20 @@
-The occurrence of a 10 is 0
-The win percentage of 10 is 0
-The occurrence of a 5 is 0
-The win percentage of 5 is 0
-The occurrence of a 0 is 0
-The win percentage of 0 is 0
-The occurrence of a 1 is 0
-The win percentage of 1 is 0
-The occurrence of a 0 is 0
-The win percentage of 0 is 0
-The occurrence of a 0 is 0
-The win percentage of 0 is 0
-The occurrence of a 0 is 0
-The win percentage of 0 is 0
-The occurrence of a 0 is 0
-The win percentage of 0 is 0
-The occurrence of a 0 is 0
-The win percentage of 0 is 0
-The occurrence of a 0 is 0
-The win percentage of 0 is 0
+The occurrence of a High Card is 0.0%
+The win percentage of High Card is 0%
+The occurrence of a 1 Pair is 0.0%
+The win percentage of 1 Pair is 0%
+The occurrence of a 2 Pair is 0.0%
+The win percentage of 2 Pair is 0%
+The occurrence of a 3 of a Kind is 0.0%
+The win percentage of 3 of a Kind is 0%
+The occurrence of a Straight is 0.0%
+The win percentage of Straight is 0%
+The occurrence of a Flush is 0.0%
+The win percentage of Flush is 0%
+The occurrence of a Full House is 100.0%
+The win percentage of Full House is 0.0%
+The occurrence of a 4 of a Kind is 0.0%
+The win percentage of 4 of a Kind is 0%
+The occurrence of a Straight Flush is 0.0%
+The win percentage of Straight Flush is 0%
+The occurrence of a Royal Flush is 0.0%
+The win percentage of Royal Flush is 0%

@@ -112,4 +112,4 @@ def score(currentHand):
     pairCheck(currentHand)
     if currentHand[-1] == 0:
         highCardTieBreaker(currentHand)
-    return(currentHand[-1])
+    # return(currentHand[-1])

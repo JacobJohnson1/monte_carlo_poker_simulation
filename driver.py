@@ -3,6 +3,7 @@ from dataclasses import dataclass
 import random
 import handScorer
 import formatAndPrint
+import os
 
 def createDeck():
     numbers=list(range(2,15))
@@ -18,25 +19,25 @@ def dealMyHand(deck):
     myHand = [deck.pop(), deck.pop(), deck.pop(), deck.pop(), deck.pop(), 0]
     return myHand
 
-def addOccurrencePercentages(matrix, size):
-    for i in matrix:
-        matrix[i][1] = (matrix[i][0]/size)
-
-def avgWin(winPercentages, matrix):
-    total = 0
-    for i in range(0, len(winPercentages)):
-        total += winPercentages[i]
-    if len(winPercentages) > 0:
-        avg = (total/len(winPercentages))
-    return avg
-# local variable 'avg' referenced before assignment
-
-def addAvgWinsToMatrix(matrix):
+def fillInDataMatrix(winPercentage, matrix, numOfHands, myHand):
+    handType = formatAndPrint.occurrenceCounter(myHand, matrix)
+    # occurrence percentage
     for i in range(0, len(matrix)):
-        matrix[i][3] = avgWin(matrix[i][2], matrix)
+        matrix[i][1] = ((matrix[i][0]/numOfHands) * 100)
+    # [win percentages]
+    listOfHandWins = matrix[handType][2]
+    listOfHandWins.append(winPercentage)
+    # avg win %
+    for i in range(0, len(matrix)):
+        if len(matrix[i][2]) > 0:
+            matrix[i][3] = (int(matrix[i][2][0])/len(matrix[i][2]))
 
 def driverFunction():
-    numOfMyHands = 10
+    os.remove('output.txt')
+    os.remove('output.csv')
+
+    
+    numOfMyHands = 100
     
     highCardPercentages = []
     onePairPercentages = []
@@ -49,7 +50,7 @@ def driverFunction():
     straighFlushPercentages = []
     royalFlushPercentages = []
 
-    # occurrence of hand type, percentage of occurrence, winPercentages, average Win percentages
+    # [ occurrence of hand type, percentage of occurrence, [winPercentages], average Win percentages ]
     dataMatrix = [
         [0, 0, highCardPercentages, 0],
         [0, 0, onePairPercentages, 0],
@@ -67,9 +68,12 @@ def driverFunction():
         numOfGames = 10
         deck = createDeck()
         random.shuffle(deck)
-        myHand = dealMyHand(deck)
+        
+        #TESTING
+        placeHolderHandSwitchBackTomyHand = dealMyHand(deck)
+        myHand = ['3C', '3D', '4H', '7H', '7C', 0]
+
         myScore = handScorer.score(myHand)
-        formatAndPrint.occurrenceCounter(myHand, dataMatrix)
         winCounter = 0
         for i in range(0, numOfGames):
             random.shuffle(deck)
@@ -81,7 +85,7 @@ def driverFunction():
             player6 = [deck[-21], deck[-22], deck[-23], deck[-24], deck[-25], 0]
 
             handMatrix = [myHand, player2, player3, player4, player5, player6]
-            for i in range(0, len(handMatrix)):
+            for i in range(1, len(handMatrix)):
                 handScorer.score(handMatrix[i])
 
             listOfScores = [handMatrix[0][-1], handMatrix[1][-1], handMatrix[2][-1], handMatrix[3][-1], handMatrix[4][-1], handMatrix[5][-1]]
@@ -93,11 +97,10 @@ def driverFunction():
                 winCounter += 0.5
         
         winPercentage = (winCounter/numOfGames * 100)
+    
+        fillInDataMatrix(winPercentage, dataMatrix, numOfMyHands, myHand)
+        formatAndPrint.printCSV(handMatrix, winPercentage)
 
-    formatAndPrint.printHandTypesAndPercents(dataMatrix)
-    formatAndPrint.printCSV(handMatrix, winPercentage)
-
-    addAvgWinsToMatrix(dataMatrix)
-    addOccurrencePercentages(dataMatrix, numOfMyHands)
+    formatAndPrint.printHandTypesAndPercents(dataMatrix)    
 
 driverFunction()
