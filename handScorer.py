@@ -1,6 +1,8 @@
 from pickle import TRUE
 import re
 from ctypes import sizeof
+from tkinter import N
+from formatAndPrint import handLabeler
 
 def convertLists(listOfStrings):
     listOfInts = []
@@ -48,17 +50,22 @@ def threeOfAKind(handList):
     for i in numVals:
         if numVals.count(i) == 3:
             triple.append(i)
-            numVals.remove(i)
-    notPairs = [x for x in numVals if x not in triple]
+    numVals = set(numVals)
+    numVals = list(numVals)
     if triple:
-        handList[-1] += threeOAKConst + triple[0] + max(notPairs)/100 + min(notPairs)/1000
+        if triple[0] in numVals:
+            numVals.remove(triple[0])
+        if len(numVals) == 2:
+            handList[-1] += threeOAKConst + triple[0] + max(numVals)/100 + min(numVals)/1000
+
 
 def straight(handList):
     straightConst = 60
     numVals = convertLists(handList)
     numVals = sorted(numVals)
     span = (numVals[-1] - numVals[0])
-    if span == 4:
+    setSize = set(numVals)
+    if span == 4 and setSize == 5:
         handList[-1] += (max(numVals) + straightConst)
     elif numVals == [2,3,4,5,14]:
         handList[-1] += (numVals[3] + straightConst)
@@ -80,18 +87,9 @@ def flush(handList):
 def fullHouse(handList):
     fullHouseConst = 90
     numVals = convertLists(handList)
-    pair = []
-    for i in numVals:
-        if numVals.count(i) == 2:
-            pair.append(i)
-            numVals.remove(i)
-    triple = []
-    for i in numVals:
-        if numVals.count(i) == 3:
-            triple.append(i)
-            numVals.remove(i)
-    if triple and pair:
-        handList[-1] += (triple[0] + pair[0] + fullHouseConst)
+    numVals = set(numVals)
+    if len(numVals) == 2:
+        handList[-1] += (max(numVals) + min(numVals) + fullHouseConst)
 
 def fourOfAKind(handList):
     fourOfAKindConst = 118
@@ -108,8 +106,8 @@ def score(currentHand):
     straight(currentHand)
     fourOfAKind(currentHand)
     fullHouse(currentHand)
-    threeOfAKind(currentHand)
-    pairCheck(currentHand)
+    if currentHand[-1] == 0:
+        pairCheck(currentHand)
+        threeOfAKind(currentHand)
     if currentHand[-1] == 0:
         highCardTieBreaker(currentHand)
-    # return(currentHand[-1])

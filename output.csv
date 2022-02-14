@@ -1,20 +1,200 @@
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['10H', '11D', '9H', '8H', '2S', 11.10982], 0.0  
+['7D', '14C', '9H', '8D', '2H', 14.09872], 0.2%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['5S', '10C', '11D', '13D', '4D', 13.12054], 0.0  
+['9D', '2C', '2D', '3H', '8C', 16.0839], 4.0%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['4C', '6D', '2D', '14C', '14D', 28.0264], 30.0  
+['12C', '7D', '6D', '5D', '5H', 19.0682], 9.9%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['6H', '14S', '10H', '11C', '13D', 14.14206], 10.0  
+['13D', '7C', '7S', '6H', '11S', 21.1173], 15.4%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['9C', '11S', '6C', '10D', '8D', 11.10986], 0.0  
+['9C', '4C', '12C', '7H', '9H', 23.0824], 20.5%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['6C', '5D', '5C', '3D', '11S', 19.113599999999998], 0.0  
+['6S', '9S', '9D', '4D', '8C', 23.0846], 18.2%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['8S', '5H', '6H', '10H', '9S', 10.09865], 0.0  
+['12D', '12S', '3C', '5D', '3S', 42.035000000000004], 76.9%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['11H', '3S', '4H', '3H', '14C', 17.145100000000003], 20.0  
+['14S', '12C', '14H', '10C', '8S', 28.0912], 66.2%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['6H', '14S', '6C', '5C', '13H', 20.1364], 0.0  
+['5S', '7S', '2C', '5H', '8D', 19.082699999999996], 9.5%  
 Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
-['12D', '14D', '13S', '13H', '6D', 27.0752], 50.0  
+['8D', '14S', '9H', '7S', '11D', 14.11987], 0.8999999999999999%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['13H', '12H', '9C', '10D', '9H', 23.113300000000002], 28.799999999999997%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['12C', '2S', '6D', '9S', '7D', 12.09762], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['13C', '2H', '5D', '4S', '3H', 13.05432], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['9H', '8S', '11S', '10H', '11H', 25.108900000000002], 33.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['2S', '9S', '12H', '6S', '14S', 14.12962], 1.6%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['4D', '8D', '10C', '5S', '5D', 19.1084], 7.199999999999999%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11D', '3D', '6D', '11C', '10S', 25.1063], 32.300000000000004%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['7H', '5S', '12S', '2D', '14H', 14.12752], 0.8%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['3C', '8H', '6S', '12D', '8C', 22.1263], 17.1%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['5H', '8D', '4D', '3S', '11S', 11.08543], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11H', '13H', '2C', '9S', '4H', 13.11942], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11D', '5S', '12C', '10H', '5D', 19.113100000000003], 8.3%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['14S', '14H', '9H', '5H', '4C', 28.0459], 65.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['7H', '10D', '14D', '5C', '3S', 14.10753], 0.4%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6C', '7H', '9D', '5S', '3D', 9.07653], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['13H', '14S', '5H', '5S', '2S', 19.0353], 8.200000000000001%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8S', '9H', '2H', '3S', '12C', 12.09832], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8H', '9C', '6C', '5H', '12H', 12.09865], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['2H', '14C', '6D', '2C', '12C', 16.1274], 4.1000000000000005%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6D', '8S', '9S', '7D', '8H', 22.0796], 16.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['9D', '12C', '4H', '5S', '11S', 12.11954], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['9C', '2S', '10D', '8H', '4S', 10.09842], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11H', '9C', '13C', '12H', '14D', 14.14319], 3.6999999999999997%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['5C', '12C', '8H', '14C', '14H', 28.092499999999998], 66.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['7D', '10S', '9D', '2H', '10C', 24.0297], 25.4%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['14S', '11C', '5H', '2H', '13H', 14.14152], 3.2%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['5C', '7C', '5S', '14D', '8S', 19.094699999999996], 9.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['13S', '7C', '3S', '14H', '14C', 28.038300000000003], 67.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11C', '13S', '4S', '10C', '12H', 13.13204], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['7D', '3S', '2H', '8C', '11H', 11.08732], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11S', '10S', '14S', '14D', '8C', 28.0911], 68.2%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8C', '6C', '9S', '7C', '12H', 12.09876], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['3S', '8S', '4C', '14D', '4H', 18.1483], 6.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['9S', '7S', '2D', '10S', '6H', 10.09762], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8C', '8D', '5S', '13H', '10S', 22.113500000000002], 18.2%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['10D', '3D', '11C', '5C', '13S', 13.12053], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11S', '4H', '7C', '9S', '11H', 25.0974], 34.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['3C', '13H', '4S', '10H', '11S', 13.12043], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11D', '2S', '4S', '9D', '6S', 11.09642], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11C', '8S', '6H', '13D', '10C', 13.12086], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11D', '2H', '6C', '10S', '12D', 12.12062], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8H', '4S', '13D', '2C', '8C', 22.0334], 17.2%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8D', '7H', '9D', '12H', '7D', 21.129800000000003], 15.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['10D', '11S', '12H', '8S', '8H', 22.132], 22.1%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['12C', '10C', '6S', '5H', '8D', 12.10865], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['10H', '8S', '14C', '9D', '5D', 14.10985], 1.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['3C', '12D', '3S', '5C', '4H', 17.0462], 4.1000000000000005%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['5H', '7H', '8H', '13C', '8D', 22.1375], 16.1%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['4S', '5C', '9D', '10H', '5H', 19.1094], 7.1%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11H', '5S', '10C', '9H', '11D', 25.1005], 34.8%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['14D', '10H', '3D', '6C', '7D', 14.10763], 0.6%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['4D', '13C', '5C', '13S', '14H', 27.1454], 62.9%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['12C', '12H', '10C', '8H', '11D', 26.119], 41.6%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['7D', '6S', '6D', '14D', '14C', 44.067], 87.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['13S', '3D', '6S', '10C', '14D', 14.14063], 2.7%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['9H', '12C', '7D', '12S', '6S', 26.0679], 41.8%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['13C', '7H', '12H', '3H', '7D', 21.043300000000002], 13.8%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6D', '12C', '14D', '7H', '7S', 21.1526], 14.499999999999998%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['2H', '8D', '11H', '4D', '13H', 13.11842], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['12D', '10S', '8H', '6H', '4H', 12.10864], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['2S', '11D', '14D', '6D', '6H', 20.1512], 12.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['14H', '12C', '5C', '14S', '14C', 59.125], 98.1%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6S', '10C', '11D', '3D', '8D', 11.10863], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['14C', '7C', '12S', '8H', '3S', 14.12873], 1.7000000000000002%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6H', '11S', '8D', '6C', '9H', 20.0991], 12.7%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['3C', '14H', '5D', '4D', '10S', 14.10543], 0.7000000000000001%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['2S', '13C', '6D', '8C', '3D', 13.08632], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['4D', '4S', '5H', '11S', '3H', 18.0415], 6.800000000000001%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11D', '2H', '11C', '5C', '4H', 25.045199999999998], 31.900000000000002%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6C', '2H', '3S', '3D', '5H', 17.052599999999998], 3.6999999999999997%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['12H', '13H', '6D', '12S', '9S', 26.0973], 47.9%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['10H', '10D', '5S', '2C', '3H', 24.0325], 22.400000000000002%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8S', '14D', '10H', '3D', '2H', 14.10832], 0.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['8D', '14S', '12D', '4H', '13S', 14.14284], 2.8000000000000003%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['12C', '14H', '7H', '7S', '13C', 21.1452], 16.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11H', '13D', '6H', '8D', '14S', 14.14186], 2.8000000000000003%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['5C', '9D', '7S', '8H', '4H', 9.08754], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['10S', '3H', '6C', '6D', '2H', 20.024], 7.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['4H', '10D', '12C', '5D', '3S', 12.10543], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['7C', '6H', '9H', '4D', '3D', 9.07643], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['13D', '4D', '10D', '7S', '3D', 13.10743], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6S', '10H', '9S', '14H', '10D', 24.1496], 31.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['7H', '7D', '3C', '9H', '3H', 37.039], 70.1%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['2H', '10D', '12C', '11C', '11H', 25.130200000000002], 35.8%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11H', '8C', '5S', '11C', '5D', 41.058], 76.5%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['11C', '2C', '14H', '4C', '12S', 14.13142], 1.9%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['9S', '10H', '9H', '13D', '2C', 23.034000000000002], 25.4%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['14C', '11S', '6D', '4S', '6H', 20.0524], 10.7%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['12S', '7D', '3D', '4C', '8H', 12.08743], 0.0%  
+Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage
+['6H', '2C', '14C', '7S', '12H', 14.12762], 1.2%  

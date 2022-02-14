@@ -59,4 +59,4 @@ def printHandTypesAndPercents(matrix):
 def printCSV(matrix, winPercent):
     csvFile = open('output.csv', 'a')
     csvFile.write('Card 1, Card 2, Card 3, Card 4, Card 5, Score, Win Percentage\n')
-    csvFile.write('%s, %s  \n' % (matrix[0], winPercent))
+    csvFile.write('%s, %s%%  \n' % (matrix[0], winPercent))

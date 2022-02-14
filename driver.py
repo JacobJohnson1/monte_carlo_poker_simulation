@@ -33,11 +33,13 @@ def fillInDataMatrix(winPercentage, matrix, numOfHands, myHand):
             matrix[i][3] = (int(matrix[i][2][0])/len(matrix[i][2]))
 
 def driverFunction():
-    os.remove('output.txt')
-    os.remove('output.csv')
+    if os.path.isfile('output.txt'):
+        os.remove('output.txt')
+    if os.path.isfile('output.csv'):
+        os.remove('output.csv')
 
     
-    numOfMyHands = 100
+    numOfMyHands = 1000
     
     highCardPercentages = []
     onePairPercentages = []
@@ -65,7 +67,7 @@ def driverFunction():
     ]
 
     for i in range(0, numOfMyHands):
-        numOfGames = 100
+        numOfGames = 1000
         deck = createDeck()
         random.shuffle(deck)
         myHand = dealMyHand(deck)
@@ -94,9 +96,7 @@ def driverFunction():
             if myHand[-1] == listOfScores[-1] and listOfScores[-1] == listOfScores[-2]:
                 winCounter += 0.5
         
-        print(winCounter)
         winPercentage = (winCounter/numOfGames * 100)
-        print(winPercentage)
 
         fillInDataMatrix(winPercentage, dataMatrix, numOfMyHands, myHand)
         formatAndPrint.printCSV(handMatrix, winPercentage)
