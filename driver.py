@@ -65,16 +65,14 @@ def driverFunction():
     ]
 
     for i in range(0, numOfMyHands):
-        numOfGames = 10
+        numOfGames = 100
         deck = createDeck()
         random.shuffle(deck)
-        
-        #TESTING
-        placeHolderHandSwitchBackTomyHand = dealMyHand(deck)
-        myHand = ['3C', '3D', '4H', '7H', '7C', 0]
-
-        myScore = handScorer.score(myHand)
+        myHand = dealMyHand(deck)
+        fullHouseInsteadOf2Pair = ['3C', '3D', '4H', '7H', '7C', 0]
+        handScorer.score(myHand)
         winCounter = 0
+
         for i in range(0, numOfGames):
             random.shuffle(deck)
 
@@ -91,13 +89,15 @@ def driverFunction():
             listOfScores = [handMatrix[0][-1], handMatrix[1][-1], handMatrix[2][-1], handMatrix[3][-1], handMatrix[4][-1], handMatrix[5][-1]]
             listOfScores = sorted(listOfScores)
             
-            if myScore == listOfScores[-1] and listOfScores[-1] > listOfScores[-2]:
+            if myHand[-1] == listOfScores[-1] and listOfScores[-1] > listOfScores[-2]:
                 winCounter += 1
-            if myScore == listOfScores[-1] and listOfScores[-1] == listOfScores[-2]:
+            if myHand[-1] == listOfScores[-1] and listOfScores[-1] == listOfScores[-2]:
                 winCounter += 0.5
         
+        print(winCounter)
         winPercentage = (winCounter/numOfGames * 100)
-    
+        print(winPercentage)
+
         fillInDataMatrix(winPercentage, dataMatrix, numOfMyHands, myHand)
         formatAndPrint.printCSV(handMatrix, winPercentage)
 
