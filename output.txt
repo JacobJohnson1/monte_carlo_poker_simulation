@@ -1,17 +1,17 @@
-The occurrence of a High Card is 45.0%
+The occurrence of a High Card is 52.6%
 The win percentage of High Card is 0.0%
-The occurrence of a 1 Pair is 50.0%
-The win percentage of 1 Pair is 0.08%
-The occurrence of a 2 Pair is 4.0%
-The win percentage of 2 Pair is 19.0%
-The occurrence of a 3 of a Kind is 1.0%
-The win percentage of 3 of a Kind is 98.0%
+The occurrence of a 1 Pair is 40.2%
+The win percentage of 1 Pair is 0.009950248756218905%
+The occurrence of a 2 Pair is 4.2%
+The win percentage of 2 Pair is 1.7380952380952381%
+The occurrence of a 3 of a Kind is 2.7%
+The win percentage of 3 of a Kind is 3.4444444444444446%
 The occurrence of a Straight is 0.0%
 The win percentage of Straight is 0%
-The occurrence of a Flush is 0.0%
-The win percentage of Flush is 0%
-The occurrence of a Full House is 0.0%
-The win percentage of Full House is 0%
+The occurrence of a Flush is 0.4%
+The win percentage of Flush is 49.0%
+The occurrence of a Full House is 0.1%
+The win percentage of Full House is 99.0%
 The occurrence of a 4 of a Kind is 0.0%
 The win percentage of 4 of a Kind is 0%
 The occurrence of a Straight Flush is 0.0%

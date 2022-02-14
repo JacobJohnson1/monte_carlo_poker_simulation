@@ -38,7 +38,6 @@ def driverFunction():
     if os.path.isfile('output.csv'):
         os.remove('output.csv')
 
-    
     numOfMyHands = 1000
     
     highCardPercentages = []
