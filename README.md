@@ -110,6 +110,7 @@ Royal Flush = 147
 
 Inspiration for scoring hands:  
 - https://towardsdatascience.com/poker-with-python-how-to-score-all-hands-in-texas-holdem-6fd750ef73d  
+  (This blog post has since been removed from Medium, but I think it important to try and give credit in spite of this)
   
 Help on separating card values & suits:  
 - https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python  
