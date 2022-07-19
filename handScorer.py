@@ -56,7 +56,7 @@ def threeOfAKind(handList):
         if triple[0] in numVals:
             numVals.remove(triple[0])
         if len(numVals) == 2:
-            handList[-1] += threeOAKConst + triple[0] + max(numVals)/100 + min(numVals)/1000
+            handList[-1] += threeOAKConst + triple[0] + min(numVals)/1000 + max(numVals)/100
 
 
 def straight(handList):
@@ -82,14 +82,21 @@ def flush(handList):
     elif len(set(onlySuits)) == 1 and numVals == [2,3,4,5,14]:
         handList[-1] += (numVals[3] + flushConst + straightFlushConst)
     elif len(set(onlySuits)) == 1:
-        handList[-1] += (max(numVals) + flushConst)
+        handList[-1] += (flushConst + numVals[0]/100000 + numVals[1]/10000 + numVals[2]/1000 + numVals[3]/100 + numVals[4])
 
 def fullHouse(handList):
     fullHouseConst = 90
     numVals = convertLists(handList)
-    numVals = set(numVals)
-    if len(numVals) == 2:
-        handList[-1] += (max(numVals) + min(numVals) + fullHouseConst)
+    numValSet = set(numVals)
+    if len(numValSet) == 2:
+        triple = []
+        for i in numVals:
+            if numVals.count(i) == 3:
+                triple.append(i)
+        for i in numVals:
+            if triple[0] in numVals:
+                numVals.remove(triple[0])
+        handList[-1] += (fullHouseConst + triple[0] + numVals[0]/100)
 
 def fourOfAKind(handList):
     fourOfAKindConst = 118
