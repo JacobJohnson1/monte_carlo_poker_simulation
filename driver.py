@@ -38,7 +38,7 @@ def driverFunction():
     if os.path.isfile('output.csv'):
         os.remove('output.csv')
 
-    numOfMyHands = 1000
+    numOfMyHands = 10
     
     highCardPercentages = []
     onePairPercentages = []
@@ -66,7 +66,7 @@ def driverFunction():
     ]
 
     for i in range(0, numOfMyHands):
-        numOfGames = 1000
+        numOfGames = 10
         deck = createDeck()
         random.shuffle(deck)
         myHand = dealMyHand(deck)

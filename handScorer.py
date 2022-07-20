@@ -90,13 +90,17 @@ def fullHouse(handList):
     numValSet = set(numVals)
     if len(numValSet) == 2:
         triple = []
+        double = []
         for i in numVals:
             if numVals.count(i) == 3:
                 triple.append(i)
+        size_of_numVals = len(numVals)
         for i in numVals:
-            if triple[0] in numVals:
-                numVals.remove(triple[0])
-        handList[-1] += (fullHouseConst + triple[0] + numVals[0]/100)
+            while i < size_of_numVals:
+                if (triple) and (numVals[i] != triple[0]):
+                    double.append(i)
+                if len(double) == 2:
+                    handList[-1] += (fullHouseConst + triple[0] + double[0]/100)
 
 def fourOfAKind(handList):
     fourOfAKindConst = 118
